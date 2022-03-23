@@ -7,5 +7,10 @@
             public Fields fields { get; set; }
             public Geometry geometry { get; set; }
             public DateTime record_timestamp { get; set; }
+
+        public string display()
+        {
+            return $"{fields.commune}, {fields.operateur} - {fields.technologies}";
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace PRJ_4G_WinForm
         HashSet<string> Communes = new HashSet<string>();
 
         HashSet<string> IDs = new HashSet<string>();
+        List<C_ANTENNE> listAntennes = new List<C_ANTENNE>();
 
 
 
@@ -35,7 +36,7 @@ namespace PRJ_4G_WinForm
 
             carte.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
-            carte.Position = new GMap.NET.PointLatLng(48.855710183494736, 2.35866510901464);
+            //carte.Position = new GMap.NET.PointLatLng(48.855710183494736, 2.35866510901464);
 
             //listBox_listAntennes.DataSource = Antennes;
             //listBox_listAntennes.DisplayMember = "Geometry.coordinates";
@@ -79,7 +80,7 @@ namespace PRJ_4G_WinForm
             foreach (C_ANTENNE id in Antennes)
             {
                 if (id.recordid != null)
-                { IDs.Add(id.recordid); }
+                { IDs.Add(id.recordid); listAntennes.Add(id); }
             }
 
         }
@@ -135,9 +136,9 @@ namespace PRJ_4G_WinForm
 
 
             //-_-_-_-
-            foreach (string id in IDs)
+            foreach (C_ANTENNE antenne in listAntennes)
             {
-                listBox_listAntennes.Items.Add(id);
+                listBox_listAntennes.Items.Add(antenne.display());
             }
 
         }
@@ -167,6 +168,7 @@ namespace PRJ_4G_WinForm
         private void Update_listAntenne_listBox()
         {
             IDs.Clear();
+            listAntennes.Clear();
             //Get Ids_________(listBox)
             foreach (C_ANTENNE id in Antennes)
             {
@@ -175,13 +177,13 @@ namespace PRJ_4G_WinForm
                     && (id.fields.operateur == selected_Operateur || selected_Operateur == "*")
                     && (id.fields.technologies == selected_Technologie || selected_Technologie == "*")
                     && (id.fields.commune == selected_Commune || selected_Commune == "*"))
-                { IDs.Add(id.recordid); }
+                { IDs.Add(id.recordid); listAntennes.Add(id); }
             }
 
             listBox_listAntennes.Items.Clear();
-            foreach (string id in IDs)
+            foreach (C_ANTENNE antenne in listAntennes)
             {
-                listBox_listAntennes.Items.Add(id);
+                listBox_listAntennes.Items.Add(antenne.display());
             }
 
         }
@@ -275,10 +277,12 @@ namespace PRJ_4G_WinForm
         //--
         private void listBox_listAntennes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (C_ANTENNE antenne in Antennes)
+            foreach (string id in IDs)
             {
-                if (antenne.recordid == (string)listBox_listAntennes.SelectedItem)
+                //if (antenne.recordid == (string)listBox_listAntennes.SelectedItem)
+                if (id == listAntennes[listBox_listAntennes.SelectedIndex].recordid)
                 {
+                    C_ANTENNE antenne = listAntennes[listBox_listAntennes.SelectedIndex];
                     textBox_Coords.Text = $"{antenne.geometry.coordinates[1]} / {antenne.geometry.coordinates[0]}";
                     carte.Position = new GMap.NET.PointLatLng(antenne.geometry.coordinates[1], antenne.geometry.coordinates[0]);
 
