@@ -55,6 +55,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label_commune = new System.Windows.Forms.Label();
+            this.label_tech = new System.Windows.Forms.Label();
+            this.label_op = new System.Windows.Forms.Label();
+            this.label_dep = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -173,7 +177,7 @@
             this.comboBox_Communes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Communes.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.comboBox_Communes.FormattingEnabled = true;
-            this.comboBox_Communes.Location = new System.Drawing.Point(12, 451);
+            this.comboBox_Communes.Location = new System.Drawing.Point(9, 342);
             this.comboBox_Communes.Name = "comboBox_Communes";
             this.comboBox_Communes.Size = new System.Drawing.Size(170, 28);
             this.comboBox_Communes.Sorted = true;
@@ -204,7 +208,7 @@
             // textBox_Communes
             // 
             this.textBox_Communes.Enabled = false;
-            this.textBox_Communes.Location = new System.Drawing.Point(117, 142);
+            this.textBox_Communes.Location = new System.Drawing.Point(117, 109);
             this.textBox_Communes.Name = "textBox_Communes";
             this.textBox_Communes.ReadOnly = true;
             this.textBox_Communes.Size = new System.Drawing.Size(48, 27);
@@ -306,7 +310,7 @@
             // textBox_Tech
             // 
             this.textBox_Tech.Enabled = false;
-            this.textBox_Tech.Location = new System.Drawing.Point(117, 109);
+            this.textBox_Tech.Location = new System.Drawing.Point(117, 142);
             this.textBox_Tech.Multiline = true;
             this.textBox_Tech.Name = "textBox_Tech";
             this.textBox_Tech.ReadOnly = true;
@@ -320,7 +324,7 @@
             this.comboBox_Technologie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Technologie.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.comboBox_Technologie.FormattingEnabled = true;
-            this.comboBox_Technologie.Location = new System.Drawing.Point(12, 341);
+            this.comboBox_Technologie.Location = new System.Drawing.Point(9, 452);
             this.comboBox_Technologie.Name = "comboBox_Technologie";
             this.comboBox_Technologie.Size = new System.Drawing.Size(170, 28);
             this.comboBox_Technologie.Sorted = true;
@@ -366,7 +370,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.BackColor = System.Drawing.Color.Teal;
+            this.groupBox1.Controls.Add(this.label_commune);
+            this.groupBox1.Controls.Add(this.label_tech);
+            this.groupBox1.Controls.Add(this.label_op);
+            this.groupBox1.Controls.Add(this.label_dep);
             this.groupBox1.Controls.Add(this.textBox_Departement);
             this.groupBox1.Controls.Add(this.textBox_Communes);
             this.groupBox1.Controls.Add(this.textBox_Operateur);
@@ -377,6 +385,44 @@
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " Information : ";
+            // 
+            // label_commune
+            // 
+            this.label_commune.AutoSize = true;
+            this.label_commune.Location = new System.Drawing.Point(28, 112);
+            this.label_commune.Name = "label_commune";
+            this.label_commune.Size = new System.Drawing.Size(83, 20);
+            this.label_commune.TabIndex = 27;
+            this.label_commune.Text = "Communes";
+            // 
+            // label_tech
+            // 
+            this.label_tech.AutoSize = true;
+            this.label_tech.Location = new System.Drawing.Point(15, 145);
+            this.label_tech.Name = "label_tech";
+            this.label_tech.Size = new System.Drawing.Size(96, 20);
+            this.label_tech.TabIndex = 26;
+            this.label_tech.Text = "Technologies";
+            // 
+            // label_op
+            // 
+            this.label_op.AutoSize = true;
+            this.label_op.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label_op.Location = new System.Drawing.Point(29, 79);
+            this.label_op.Name = "label_op";
+            this.label_op.Size = new System.Drawing.Size(82, 20);
+            this.label_op.TabIndex = 25;
+            this.label_op.Text = "Opérateurs";
+            // 
+            // label_dep
+            // 
+            this.label_dep.AutoSize = true;
+            this.label_dep.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label_dep.Location = new System.Drawing.Point(8, 43);
+            this.label_dep.Name = "label_dep";
+            this.label_dep.Size = new System.Drawing.Size(103, 20);
+            this.label_dep.TabIndex = 24;
+            this.label_dep.Text = "Départements";
             // 
             // Form1
             // 
@@ -431,5 +477,9 @@
         private Panel panel2;
         private Panel panel3;
         private GroupBox groupBox1;
+        private Label label_dep;
+        private Label label_op;
+        private Label label_tech;
+        private Label label_commune;
     }
 }
