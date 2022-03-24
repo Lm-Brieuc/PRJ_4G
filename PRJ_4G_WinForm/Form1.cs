@@ -1,3 +1,6 @@
+using GMap.NET;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
 using System.Text.Json;
 
 namespace PRJ_4G_WinForm
@@ -24,6 +27,7 @@ namespace PRJ_4G_WinForm
 
 
 
+
         public Form1()
         {
 
@@ -35,8 +39,8 @@ namespace PRJ_4G_WinForm
             inc_comboBox();
 
             carte.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
-            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
-            //carte.Position = new GMap.NET.PointLatLng(48.855710183494736, 2.35866510901464);
+            GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
+
 
             //listBox_listAntennes.DataSource = Antennes;
             //listBox_listAntennes.DisplayMember = "Geometry.coordinates";
@@ -177,7 +181,10 @@ namespace PRJ_4G_WinForm
                     && (id.fields.operateur == selected_Operateur || selected_Operateur == "*")
                     && (id.fields.technologies == selected_Technologie || selected_Technologie == "*")
                     && (id.fields.commune == selected_Commune || selected_Commune == "*"))
-                { IDs.Add(id.recordid); listAntennes.Add(id); }
+                { 
+                    IDs.Add(id.recordid); 
+                    listAntennes.Add(id);
+                }
             }
 
             listBox_listAntennes.Items.Clear();
@@ -286,6 +293,11 @@ namespace PRJ_4G_WinForm
                     textBox_Coords.Text = $"{antenne.geometry.coordinates[1]} / {antenne.geometry.coordinates[0]}";
                     carte.Position = new GMap.NET.PointLatLng(antenne.geometry.coordinates[1], antenne.geometry.coordinates[0]);
 
+                    GMapOverlay markers = new GMapOverlay("markers");
+                    GMapMarker marker = new GMarkerGoogle(new PointLatLng(listAntennes[listBox_listAntennes.SelectedIndex].fields.coordonnees[0], listAntennes[listBox_listAntennes.SelectedIndex].fields.coordonnees[1]),
+                        GMarkerGoogleType.blue_pushpin);
+                    markers.Markers.Add(marker);
+                    carte.Overlays.Add(markers);
                 }
             }
         }

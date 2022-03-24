@@ -370,7 +370,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Teal;
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.groupBox1.Controls.Add(this.label_commune);
             this.groupBox1.Controls.Add(this.label_tech);
             this.groupBox1.Controls.Add(this.label_op);
@@ -379,6 +379,8 @@
             this.groupBox1.Controls.Add(this.textBox_Communes);
             this.groupBox1.Controls.Add(this.textBox_Operateur);
             this.groupBox1.Controls.Add(this.textBox_Tech);
+            this.groupBox1.Cursor = System.Windows.Forms.Cursors.No;
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(852, 76);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(171, 182);
@@ -389,7 +391,8 @@
             // label_commune
             // 
             this.label_commune.AutoSize = true;
-            this.label_commune.Location = new System.Drawing.Point(28, 112);
+            this.label_commune.ForeColor = System.Drawing.Color.White;
+            this.label_commune.Location = new System.Drawing.Point(6, 109);
             this.label_commune.Name = "label_commune";
             this.label_commune.Size = new System.Drawing.Size(83, 20);
             this.label_commune.TabIndex = 27;
@@ -398,7 +401,8 @@
             // label_tech
             // 
             this.label_tech.AutoSize = true;
-            this.label_tech.Location = new System.Drawing.Point(15, 145);
+            this.label_tech.ForeColor = System.Drawing.Color.White;
+            this.label_tech.Location = new System.Drawing.Point(6, 145);
             this.label_tech.Name = "label_tech";
             this.label_tech.Size = new System.Drawing.Size(96, 20);
             this.label_tech.TabIndex = 26;
@@ -407,8 +411,8 @@
             // label_op
             // 
             this.label_op.AutoSize = true;
-            this.label_op.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label_op.Location = new System.Drawing.Point(29, 79);
+            this.label_op.ForeColor = System.Drawing.Color.White;
+            this.label_op.Location = new System.Drawing.Point(8, 78);
             this.label_op.Name = "label_op";
             this.label_op.Size = new System.Drawing.Size(82, 20);
             this.label_op.TabIndex = 25;
@@ -417,7 +421,7 @@
             // label_dep
             // 
             this.label_dep.AutoSize = true;
-            this.label_dep.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label_dep.ForeColor = System.Drawing.Color.White;
             this.label_dep.Location = new System.Drawing.Point(8, 43);
             this.label_dep.Name = "label_dep";
             this.label_dep.Size = new System.Drawing.Size(103, 20);
